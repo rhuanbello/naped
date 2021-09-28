@@ -33,12 +33,12 @@
 
 
     main .news .description h3 {
-        font-size: clamp(1rem, 2vw, 1.4rem);
+        /* font-size: clamp(1rem, 2vw, 1.4rem); */
 
     }
     
     main .news .description p {
-        font-size: clamp(.6rem, 1.5vw, 1.6rem);
+        /* font-size: clamp(.6rem, 1.5vw, 1.6rem); */
 
     }
     aside {
@@ -59,7 +59,7 @@
     }
 
     aside .banner h3 {
-        font-size: clamp(.6rem, .9vw, 1.4rem);
+        /* font-size: clamp(.6rem, .9vw, 1.4rem); */
         left: .5rem;
     }
 
@@ -79,7 +79,7 @@
     }
     
     aside .banner h3 {
-        font-size: clamp(.75rem, 2vw, 1rem);
+        /* font-size: clamp(.75rem, 2vw, 1rem); */
         left: 1rem
     }
 
@@ -103,4 +103,19 @@
         
     }
 
+}
+
+@media (max-width: 1200px) {
+    :root {
+        font-size: 55%;
+    
+    }
+}
+
+
+@media (max-width: 450px) {
+    :root {
+        font-size: 50%;
+    
+    }
 }

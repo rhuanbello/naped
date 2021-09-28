@@ -24,11 +24,12 @@ body {
     background-color: #13131F;
     font-size: 1.6rem;
     display: grid;
-    height: 100vh;
+    min-height: 100vh;
     grid-template: 
                 'header header header header header' auto
                 'banner banner banner banner banner' auto
                 'main main main main aside' auto
+                'section section section section section' auto
                 'footer footer footer footer footer' auto
                 ;
     grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
@@ -48,7 +49,6 @@ header ul {
     padding: 2.6rem 0;
 
 }
-
 
 
 header ul li:first-child {
@@ -76,8 +76,7 @@ header ul li a {
     font-weight: medium;
 }
 
-section {
-    
+section{
     grid-area: banner;
     grid-column: 2 / 5;
     display: grid;
@@ -106,7 +105,8 @@ section .callout {
 
 section .callout h2 {
     font-family: 'Lexend Deca';
-    font-size: clamp(3rem, 8vw, 4.8rem);
+    /* font-size: clamp(3rem, 8vw, 4.8rem); */
+    font-size: 4.8rem;
     font-weight: normal;
     margin-bottom: 1rem;
 
@@ -114,7 +114,8 @@ section .callout h2 {
 
 section .callout p {
     font-family: 'Inter';
-    font-size: clamp(1rem, 3vw, 2rem);
+    /* font-size: clamp(1rem, 3vw, 2rem); */
+    font-size: 2rem;
     color: #C4C4C4;
 
 }
@@ -131,6 +132,14 @@ section .container-banner {
 section .container-banner .banner {
     position: relative;   
     font-family: 'Lexend Deca', sans-serif;
+    cursor: pointer;
+    transition: .3s;
+
+}
+
+section .container-banner .banner:hover {
+    transform: scale(1.05);
+    z-index: 5;
 
 }
 
@@ -144,7 +153,8 @@ section .container-banner .banner h3 {
     position: absolute;
     bottom: 1.5rem;
     left: 3rem;
-    font-size: clamp(.5rem, 1.5vw, 2.4rem);
+    /* font-size: clamp(.5rem, 1.5vw, 2.4rem); */
+    font-size: 2.4rem;
     font-weight: normal;
     line-height: 150%;
 
@@ -158,7 +168,8 @@ section .container-banner .banner a {
     background-color: #8257E6;
     color: #FEFBFB;
     border-radius: .3rem;
-    font-size: clamp(.8rem, 1vw, 1.4rem);
+    /* font-size: clamp(.8rem, 1vw, 1.4rem); */
+    font-size: 1.4rem;
 
 }
 
@@ -175,7 +186,8 @@ section .container-banner .mini-banner img {
 }
 
 section .container-banner .mini-banner h3 {
-    font-size: clamp(.6rem, .85vw, 1.4rem);
+    /* font-size: clamp(.6rem, .85vw, 1.4rem); */
+    font-size: 1.4rem;
     line-height: 160%;
     left: 1.5rem;
     bottom: 1rem;
@@ -183,7 +195,8 @@ section .container-banner .mini-banner h3 {
 }
 
 section .container-banner .mini-banner a {
-    font-size: clamp(.6rem, .9vw, 1.2rem);
+    /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+    font-size: 1.2rem;
     top: 1rem;
     left: 1rem;
 
@@ -192,14 +205,33 @@ section .container-banner .mini-banner a {
 main {
     display: flex;
     flex-direction: column;
+    max-height: 92rem;
+    overflow-y: scroll;  
    
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: .8rem;
+
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #282830;
+}
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #8257E6
+
 }
 
 main .news {
     display: flex;
     gap: 2rem;
     margin-bottom: 3.5rem;
-    
+   
 }
 
 /* Cover Image */
@@ -212,6 +244,8 @@ main .news .cover {
 main .news .cover img {
     max-width: 100%;
     height: fit-content;
+    cursor: pointer;
+
 }
 
 main .news .cover a {
@@ -224,7 +258,8 @@ main .news .cover a {
     background-color: #8257E6;
     color: #FEFBFB;
     border-radius: .3rem;
-    font-size: clamp(.5rem, .8vw, 1rem);
+    /* font-size: clamp(.5rem, .8vw, 1rem); */
+    font-size: 1rem;
 
 }
 
@@ -237,7 +272,8 @@ main .news .description {
 
 main .news .description h3 {
     
-    font-size: clamp(.6rem, .9vw, 1.4rem);
+    /* font-size: clamp(.6rem, .9vw, 1.4rem); */
+    font-size: 1.4rem;
     line-height: 140%;
     left: 1.5rem;
     bottom: 1rem;
@@ -245,17 +281,20 @@ main .news .description h3 {
     font-weight: normal;
 
     margin-bottom: 1rem;
+    cursor: pointer;
 }
 
 main .news .description p {
-    font-size: clamp(.6rem, .9vw, 1.2rem);
+    /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+    font-size: 1.2rem;
     color: #C4C4C4;
     
     margin-bottom: .5rem;
 }
 
 main .news .description span {
-    font-size: clamp(.5rem, .8vw, 1rem);
+    /* font-size: clamp(.5rem, .8vw, 1rem); */
+    font-size: 1rem;
     font-weight: 700;
     display: block;
     line-height: 2rem;
@@ -272,20 +311,22 @@ main .news .description a {
     background-color: #8257E6;
     color: #FEFBFB;
     border-radius: .3rem;
-    font-size: clamp(.6rem, .9vw, 1.2rem);
+    /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+    font-size: 1.2rem;
     font-weight: 600;
 
 }
 
 aside {
     display: grid;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 aside h2 {
     font-family: 'Lexend Deca';
     font-weight: normal;
-    font-size: clamp(1rem, 1.7vw, 2.4rem);
+    /* font-size: clamp(1rem, 1.7vw, 2.4rem); */
+    font-size: 2.4rem;
     line-height: 140%;
     margin-bottom: 1.4rem;
     
@@ -308,7 +349,13 @@ aside .banner {
     font-family: 'Lexend Deca', sans-serif;
     margin-bottom: 5.7rem;
     width: 100%;
+    transition: .2s;
+    cursor: pointer;
 
+}
+
+aside .banner:hover {
+    transform: scale(1.05);
 }
 
 aside .banner img {
@@ -318,7 +365,8 @@ aside .banner img {
 
 aside .banner a {
     position: absolute;
-    font-size: clamp(.6rem, .9vw, 1.2rem);
+    /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+    font-size: 1.2rem;
     top: 1rem;
     left: 1rem;
     padding: .4rem 1.8rem;
@@ -330,12 +378,100 @@ aside .banner a {
 
 aside .banner h3 {
     position: absolute;
-    font-size: clamp(.9rem, 1.1vw, 1.3rem);
+    /* font-size: clamp(.9rem, 1.1vw, 1.3rem); */
+    font-size: 1.3rem;
     line-height: 160%;
     left: 1.5rem;
     bottom: 1rem;
 
 }
+
+
+section.lastest-news {
+    grid-area: section;
+    grid-column: 2 / 5;
+   
+
+}
+
+section.lastest-news .banners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5.5rem;
+
+}
+
+
+
+section.lastest-news h2 {
+    font-family: 'Lexend Deca';
+    font-weight: normal;
+    /* font-size: clamp(1rem, 1.7vw, 2.4rem); */
+    font-size: 2.4rem;
+    line-height: 140%;
+    margin-bottom: 1.4rem;
+    
+}
+
+section.lastest-news h2::after {
+    content: '';
+    height: .3rem;
+    width: 25rem;
+    display: block;
+    background-color: #8257E6;
+    position: relative;
+    bottom: -1rem;
+    margin-bottom: 3rem;
+    
+}
+
+section.lastest-news .banner {
+    position: relative;   
+    font-family: 'Lexend Deca', sans-serif;
+    transition: .2s;
+    cursor: pointer;
+
+}
+
+section.lastest-news .banner:hover {
+    transform: scale(1.05);
+}
+
+section.lastest-news .banner img {
+    height: fit-content;
+    max-width: 100%;
+}
+
+section.lastest-news .banner a {
+    position: absolute;
+    /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+    font-size: 1.2rem;
+    top: 1rem;
+    left: 1rem;
+    padding: .4rem 1.8rem;
+    background-color: #8257E6;
+    color: #FEFBFB;
+    border-radius: .3rem;
+    
+}
+
+section.lastest-news .banner h3 {
+    position: absolute;
+    font-size: 1.3rem;
+    line-height: 160%;
+    left: 1.5rem;
+    bottom: 1rem;
+
+}
+
+
+
+
+
+
+
+
+
 
 footer {
     
@@ -349,13 +485,15 @@ footer {
 footer a {
     font-family: 'Lexend Deca', sans-serif;
     color: #8257e6;
-    font-size: clamp(1rem, 1.7vw, 2.4rem);
+    /* font-size: clamp(1rem, 1.7vw, 2.4rem); */
+    font-size: 2.4rem;
 }
 
 footer p {
     font-family: 'Inter';
     font-weight: 500;
-    font-size: clamp(.6rem, .9vw, 1.4rem);
+    /* font-size: clamp(.6rem, .9vw, 1.4rem); */
+    font-size: 1.4rem;
     line-height: 2.2rem;
 
     color: #C4C4C4;
