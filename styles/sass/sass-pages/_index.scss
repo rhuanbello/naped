@@ -1,0 +1,575 @@
+body {
+    background-color: $body-default-color;
+    color: $main-text-color;
+    font-size: 1.6rem;
+    gap: 3rem;
+    display: grid;
+    min-height: 100vh;
+    grid-template: 
+                'header header' auto
+                'banner banner' auto
+                'bannerCentral miniBanner' auto
+                'main aside' auto
+                'section section' auto
+                'footer footer' auto
+                ;
+    grid-template-columns: 2fr 1fr;
+
+    @include responsive (laptop) {
+
+        grid-template: 
+                    'header header' auto
+                    'banner banner' auto
+                    'bannerCentral miniBanner' auto
+                    'main main' auto
+                    'section section'
+                    'aside aside' auto
+                    'footer footer' auto
+                    ;
+        grid-template-columns: 2fr 1fr;
+
+
+    }
+
+}
+
+header.header-main {
+    grid-area: header;
+
+    ul {
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6rem;
+        padding: 2.6rem 0;
+
+        li:first-child {
+            flex: 1;
+        
+        }
+        
+        li:first-child a{
+            font-family: 'Lexend Deca', sans-serif;
+            color: $primary-color;
+            font-size: 2.4rem;
+        
+        }
+        
+        li:last-child a {
+            font-size: 1.4rem;
+            padding: .5rem 2rem;
+            border: .1rem solid $primary-color;
+            border-radius: 3rem;
+        }
+        
+        li a {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            font-weight: medium;
+        }
+    
+        @include responsive(mobile) {
+            gap: 2rem;
+            padding: 2.6rem 0;
+        }
+
+    }
+
+}
+
+section.section-main {
+    grid-area: banner;
+    display: grid;
+    align-items: center;
+
+    .callout {
+        padding: 8rem 0;
+
+        h2 {
+            font-family: 'Lexend Deca';
+            font-size: 4.8rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        
+        }
+        
+        p {
+            font-family: 'Inter';
+            font-size: 2rem;
+            color: $grey-text-color;
+        
+        }
+
+    } 
+    
+    .container-banner {
+        display: flex;
+        gap: 2rem;
+
+        
+        @include responsive(tablet) {
+            flex-wrap: wrap;
+
+        }
+     
+    
+    }
+    
+}     
+    
+.bannerCentral {
+    position: relative;   
+    font-family: 'Lexend Deca', sans-serif;
+    cursor: pointer;
+    overflow: hidden;
+    grid-area: bannerCentral;
+    width: 100%;
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: fit-content;
+        transition: .3s;
+
+        &:hover {
+            transform: scale(1.1);
+            z-index: 5;
+        
+        }
+    
+    }
+    
+    h3 {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 3rem;               
+        font-size: 2.4rem;
+        font-weight: normal;
+        line-height: 150%;
+    
+    }
+    
+    a {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        padding: .4rem 1.8rem;
+        background-color: $primary-color;
+        border-radius: .3rem;
+        font-size: 1.4rem;
+    
+    }
+
+
+}
+
+.mini-bannerCentral {
+    display: grid;
+    gap: 2rem;
+    grid-area: miniBanner;
+
+    .banner {
+        position: relative;   
+        font-family: 'Lexend Deca', sans-serif;
+        transition: .2s;
+        cursor: pointer;
+        overflow: hidden;
+
+        img {
+            height: fit-content;
+            width: 100%;
+            transition: .2s;
+
+            &:hover {
+                transform: scale(1.1);
+
+            }
+            
+        }
+
+        a {
+            position: absolute;
+            /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+            font-size: 1.2rem;
+            top: 1rem;
+            left: 1rem;
+            padding: .4rem 1.8rem;
+            background-color: $primary-color;
+            // color: $main-text-color;-color;
+            border-radius: .3rem;
+            
+        }
+        
+        h2::after {
+            @include responsive(notebook) {
+
+                width: 40%
+                
+            }
+
+        }
+
+        h3 {
+            position: absolute;
+            /* font-size: clamp(.9rem, 1.1vw, 1.3rem); */
+            font-size: 1.3rem;
+            line-height: 160%;
+            left: 1.5rem;
+            bottom: 1rem;
+        
+            @include responsive(tablet) {
+                left: 1rem
+            }
+
+            @include responsive(tablet) {
+                left: .5rem;
+            }
+            
+
+        }
+        
+        @include responsive(tablet) {
+            width: 80%;
+            margin-bottom: .5rem;
+        }
+
+        
+    }
+
+    @include responsive(tablet) {
+        display: flex !important;
+    }
+
+}
+
+aside {
+    grid-area: aside;
+    // height:  fit-content;
+
+
+    h2 {
+        font-family: 'Lexend Deca';
+        font-weight: normal;
+        font-size: 2.4rem;
+        line-height: 140%;
+        margin-bottom: 1.4rem;
+
+        &::after {
+            content: '';
+            height: .3rem;
+            width: 25rem;
+            display: block;
+            background-color: $primary-color;
+            position: relative;
+            bottom: -1rem;
+            margin-bottom: 1.4rem;
+            
+        }
+        
+    }
+
+    .banners {
+        padding-block: 4rem 0;
+        display: grid;
+        gap: 3rem;
+    }
+
+    .banner {
+        position: relative;   
+        font-family: 'Lexend Deca', sans-serif;
+        width: 100%;
+        transition: .2s;
+        cursor: pointer;
+        overflow: hidden;
+
+        img {
+            height: fit-content;
+            width: 100%;
+            transition: .2s;
+
+            &:hover {
+                transform: scale(1.1);
+
+            }
+            
+        }
+
+        a {
+            position: absolute;
+            /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+            font-size: 1.2rem;
+            top: 1rem;
+            left: 1rem;
+            padding: .4rem 1.8rem;
+            background-color: $primary-color;
+            // color: $main-text-color;-color;
+            border-radius: .3rem;
+            
+        }
+        
+        h2::after {
+            @include responsive(notebook) {
+
+                width: 40%
+                
+            }
+
+        }
+
+        h3 {
+            position: absolute;
+            /* font-size: clamp(.9rem, 1.1vw, 1.3rem); */
+            font-size: 1.3rem;
+            line-height: 160%;
+            left: 1.5rem;
+            bottom: 1rem;
+        
+            @include responsive(tablet) {
+                left: 1rem
+            }
+
+            @include responsive(tablet) {
+                left: .5rem;
+            }
+            
+
+        }
+        
+        @include responsive(tablet) {
+            width: 80%;
+            margin-bottom: .5rem;
+        }
+
+        
+    }
+
+    @include responsive(tablet) {
+        justify-content: center;
+    }
+
+    @include responsive(notebook) {
+        display: flex;
+        gap: 2rem
+    }
+
+
+}
+
+main.main-main {
+    
+    grid-area: main;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    max-height:  120rem;
+    overflow-y: auto;   
+    
+    &::-webkit-scrollbar {
+        width: .8rem;
+    
+    }
+
+    .news {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 3.5rem;
+
+        .cover {
+            position: relative;
+         
+            img {
+                width: 100%;
+                height: fit-content;
+                cursor: pointer;
+            
+            }
+
+            a {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                
+                font-family: 'Lexend Deca', sans-serif;
+                padding: .1rem 1.4rem;
+                background-color: $primary-color;
+                // color: $main-text-color;-color;
+                border-radius: .3rem;
+                /* font-size: clamp(.5rem, .8vw, 1rem); */
+                font-size: 1rem;
+            
+            }
+
+        }
+
+        .description {
+            font-family: 'Inter';
+
+            h3 {
+    
+                /* font-size: clamp(.6rem, .9vw, 1.4rem); */
+                font-size: 1.4rem;
+                line-height: 140%;
+                left: 1.5rem;
+                bottom: 1rem;
+                font-family: 'Lexend Deca', sans-serif;
+                font-weight: normal;
+            
+                margin-bottom: 1rem;
+                cursor: pointer;
+            }
+
+            p {
+                /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+                font-size: 1.2rem;
+                color: $grey-text-color;
+                
+                margin-bottom: .5rem;
+            }
+
+            span {
+                /* font-size: clamp(.5rem, .8vw, 1rem); */
+                font-size: 1rem;
+                font-weight: 700;
+                display: block;
+                line-height: 2rem;
+                color: $grey-text-color;
+            
+                font-weight: 600;
+                margin-bottom: 1.2rem;
+            }
+
+            a {
+    
+
+                padding: .4rem 1.8rem;
+                background-color: $primary-color;
+                // color: $main-text-color;-color;
+                border-radius: .3rem;
+                /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+                font-size: 1.2rem;
+                font-weight: 600;
+            
+            }
+        
+        }
+       
+    }
+    
+    @include responsive(notebook) {
+        grid-area: main;
+        position: relative;
+    }
+
+}
+
+section.lastest-news {
+    grid-area: section;
+   
+    .banners {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        width: 100%;
+    
+        @include responsive(tablet) {
+
+            display: flex;
+            flex-direction: column;
+
+        }
+    }
+
+    h2 {
+        font-family: 'Lexend Deca';
+        font-weight: normal;
+        /* font-size: clamp(1rem, 1.7vw, 2.4rem); */
+        font-size: 2.4rem;
+        line-height: 140%;
+        margin-bottom: 1.4rem;
+
+        &::after {
+            content: '';
+            height: .3rem;
+            width: 25rem;
+            display: block;
+            background-color: $primary-color;
+            position: relative;
+            bottom: -1rem;
+            margin-bottom: 3rem;
+            
+        }
+        
+    }
+
+    .banner {
+        position: relative;   
+        font-family: 'Lexend Deca', sans-serif;
+        overflow: hidden;
+        cursor: pointer;
+        width: calc(33.33% - 2rem);
+        
+        img {
+            height: fit-content;
+            width: 100%;
+            transition: .2s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+    
+        }
+
+        a {
+            position: absolute;
+            /* font-size: clamp(.6rem, .9vw, 1.2rem); */
+            font-size: 1.2rem;
+            top: 1rem;
+            left: 1rem;
+            padding: .4rem 1.8rem;
+            background-color: $primary-color;
+            // color: $main-text-color;-color;
+            border-radius: .3rem;
+            
+        }
+
+        h3 {
+            position: absolute;
+            font-size: 1.3rem;
+            line-height: 160%;
+            left: 1.5rem;
+            bottom: 1rem;
+        
+        }
+    }
+
+}
+
+footer {
+    
+    grid-area: footer;
+
+    text-align: center;
+    padding: 4rem 0;
+
+    a {
+        font-family: 'Lexend Deca', sans-serif;
+        color: $primary-color;
+        /* font-size: clamp(1rem, 1.7vw, 2.4rem); */
+        font-size: 2.4rem;
+    }
+
+    p {
+        font-family: 'Inter';
+        font-weight: 500;
+        /* font-size: clamp(.6rem, .9vw, 1.4rem); */
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+    
+        color: $grey-text-color;
+    }
+    
+
+}
+
